@@ -19,9 +19,9 @@ class PGUIElement
     PGUIElement@ parent;
     array<PGUIElement@> elements;
 
-    bool active;
+    bool active, visible;
     private int width, height, left, top;
-    private bool visible, focus;
+    private bool focus;
     private int mouseX, mouseY;
     private bool mousePressed;
     private int8 mouseClick;
@@ -58,7 +58,8 @@ class PGUIElement
 
         this.left = this.top = this.width = this.height = 0;
         this.visible = this.active = true;
-        this.focus  = false;
+        this.focus  = this.mousePressed = false;
+        this.mouseX = this.mouseY = this.mouseClick = -1;
     }
     //
     // getters/setters
